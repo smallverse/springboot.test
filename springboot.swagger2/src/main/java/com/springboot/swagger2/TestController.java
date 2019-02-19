@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,8 +22,8 @@ public class TestController {
 
     @ApiOperation(value = "获取用户列表", notes = "notes 获取用户列表")
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
-    public String getInfo(String str) {
-        return "getInfo";
+    public String getInfo(@RequestParam(value = "输入参数") String strInput) {
+        return "getInfo" + strInput;
     }
 
 }
